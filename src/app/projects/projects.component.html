@@ -1,0 +1,9 @@
+<div class="project-grid">
+  @for (p of projects; track p.title) {
+    <div class="card">
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.desc }}</p>
+      <a [href]="p.link">View →</a>
+    </div>
+  }
+</div>
