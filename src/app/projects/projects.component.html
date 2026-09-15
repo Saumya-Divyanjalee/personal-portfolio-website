@@ -9,22 +9,29 @@
     }
   </div>
 
-  <div class="project-grid">
-    @for (p of filteredProjects; track p.id) {
-      <div class="card">
-        <h3>{{ p.title }}</h3>
-        <p>{{ p.description }}</p>
-        <div class="tech-tags">
-          @for (t of p.technologies; track t) {
-            <span>{{ t }}</span>
-          }
+  <div class="project-list">
+    @for (p of filteredProjects; track p.id; let i = $index) {
+      <div class="project-row" [class.reverse]="i % 2 === 1">
+        <div class="project-visual">
+          <i class="fas fa-code"></i>
         </div>
-        @if (p.github) {
-          <a [href]="p.github" target="_blank">GitHub →</a>
-        }
-        @if (p.liveDemo) {
-          <a [href]="p.liveDemo" target="_blank">Live Demo →</a>
-        }
+        <div class="project-info">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+          <div class="tech-tags">
+            @for (t of p.technologies; track t) {
+              <span>{{ t }}</span>
+            }
+          </div>
+          <div class="project-links">
+            @if (p.github) {
+              <a [href]="p.github" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            }
+            @if (p.liveDemo) {
+              <a [href]="p.liveDemo" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+            }
+          </div>
+        </div>
       </div>
     }
   </div>

@@ -26,3 +26,39 @@
   transform: translateY(-2px);
   background: rgba(99, 102, 241, 0.2);
 }
+
+.skill-ring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.skill-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.ring-visual {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  transition: transform 0.4s, border-color 0.3s;
+}
+
+.skill-ring:hover .ring-visual {
+  transform: rotate(360deg);
+  border-color: var(--accent);
+  border-top-color: var(--accent-bright);
+  box-shadow: 0 0 14px var(--accent-soft);
+}
+
+.skill-ring span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}

@@ -4,9 +4,12 @@
   @for (group of skillGroups; track group.category) {
     <div class="skill-group">
       <h3>{{ group.category }}</h3>
-      <div class="tags">
+      <div class="skill-ring-grid">
         @for (item of group.items; track item) {
-          <span class="tag">{{ item }}</span>
+          <div class="skill-ring">
+            <div class="ring-visual"></div>
+            <span>{{ item }}</span>
+          </div>
         }
       </div>
     </div>
