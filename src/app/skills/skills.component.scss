@@ -1,0 +1,28 @@
+.skills {
+  padding: 4rem 2rem;
+}
+
+.skill-group {
+  margin-bottom: 2rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  font-size: 0.9rem;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  background: rgba(99, 102, 241, 0.2);
+}
