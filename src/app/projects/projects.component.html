@@ -1,11 +1,9 @@
-<section class="projects" id="projects">
+<section class="projects" id="projects" appScrollReveal>
   <h2>Projects</h2>
 
   <div class="filters">
     @for (cat of categories; track cat) {
-      <button
-        [class.active]="activeFilter() === cat"
-        (click)="setFilter(cat)">
+      <button [class.active]="activeFilter() === cat" (click)="setFilter(cat)">
         {{ cat }}
       </button>
     }

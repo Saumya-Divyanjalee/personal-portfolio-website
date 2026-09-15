@@ -1,4 +1,4 @@
-<section class="contact" id="contact">
+<section class="contact" id="contact" appScrollReveal>
   <h2>Let's Build Something Great Together</h2>
 
   <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
@@ -8,11 +8,7 @@
     <textarea [(ngModel)]="message" name="message" placeholder="Message" required rows="5"></textarea>
 
     <button type="submit" [disabled]="state === 'loading'">
-      @if (state === 'loading') {
-        Sending...
-      } @else {
-        Send Message
-      }
+      @if (state === 'loading') { Sending... } @else { Send Message }
     </button>
 
     @if (state === 'success') {

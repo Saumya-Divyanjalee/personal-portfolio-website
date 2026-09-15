@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ScrollRevealDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -22,10 +23,7 @@ export class ContactComponent {
       this.state = 'error';
       return;
     }
-
     this.state = 'loading';
-
-    // Placeholder — wire to EmailJS or a backend endpoint later
     setTimeout(() => {
       this.state = 'success';
       this.name = this.email = this.subject = this.message = '';
