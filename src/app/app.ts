@@ -6,11 +6,12 @@ import { NavigationService } from './services/navigation';
 import { FooterComponent } from './footer/footer.component';
 import { ScrollTopComponent } from './shared/scroll-top/scroll-top.component';
 import { CodeRainComponent } from './shared/code-rain/code-rain.component';
+import { LoadingScreenComponent } from './shared/loading-screen/loading-screen.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, ScrollTopComponent, CodeRainComponent],
+  imports: [RouterOutlet, FooterComponent, ScrollTopComponent, CodeRainComponent, LoadingScreenComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -20,6 +21,11 @@ export class App implements AfterViewInit {
   private platformId = inject(PLATFORM_ID);
   scrolled = signal(false);
   activeSection = signal('home');
+  booting = signal(true);
+
+  onBootDone() {
+    this.booting.set(false);
+  }
 
   private sectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
 

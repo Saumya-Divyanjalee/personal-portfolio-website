@@ -1,0 +1,34 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: #050a07;
+  color: #00e676;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.boot-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.4rem;
+    text-shadow: 0 0 6px rgba(0, 230, 118, 0.5);
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 10px;
+  height: 1.2rem;
+  background: #00e676;
+  animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
