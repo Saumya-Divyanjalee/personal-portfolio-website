@@ -1,9 +1,33 @@
-<div class="project-grid">
-  @for (p of projects; track p.title) {
-    <div class="card">
-      <h3>{{ p.title }}</h3>
-      <p>{{ p.description }}</p>
-      <a [href]="p.link">View →</a>
-    </div>
-  }
-</div>
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+
+  <div class="filters">
+    @for (cat of categories; track cat) {
+      <button
+        [class.active]="activeFilter() === cat"
+        (click)="setFilter(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <div class="project-grid">
+    @for (p of filteredProjects; track p.id) {
+      <div class="card">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.description }}</p>
+        <div class="tech-tags">
+          @for (t of p.technologies; track t) {
+            <span>{{ t }}</span>
+          }
+        </div>
+        @if (p.github) {
+          <a [href]="p.github" target="_blank">GitHub →</a>
+        }
+        @if (p.liveDemo) {
+          <a [href]="p.liveDemo" target="_blank">Live Demo →</a>
+        }
+      </div>
+    }
+  </div>
+</section>

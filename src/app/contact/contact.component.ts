@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+type FormState = 'idle' | 'loading' | 'success' | 'error';
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -11,10 +13,22 @@ import { FormsModule } from '@angular/forms';
 export class ContactComponent {
   name = '';
   email = '';
+  subject = '';
   message = '';
+  state: FormState = 'idle';
 
   onSubmit() {
-    console.log({ name: this.name, email: this.email, message: this.message });
-    alert('Thanks! Your message has been captured.');
+    if (!this.name || !this.email || !this.message) {
+      this.state = 'error';
+      return;
+    }
+
+    this.state = 'loading';
+
+    // Placeholder — wire to EmailJS or a backend endpoint later
+    setTimeout(() => {
+      this.state = 'success';
+      this.name = this.email = this.subject = this.message = '';
+    }, 1200);
   }
 }

@@ -1,6 +1,33 @@
-<form (ngSubmit)="onSubmit()">
-  <input [(ngModel)]="name" name="name" placeholder="Name" required>
-  <input [(ngModel)]="email" name="email" placeholder="Email" required>
-  <textarea [(ngModel)]="message" name="message" placeholder="Message"></textarea>
-  <button type="submit">Send</button>
-</form>
+<section class="contact" id="contact">
+  <h2>Let's Build Something Great Together</h2>
+
+  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+    <input [(ngModel)]="name" name="name" placeholder="Name" required>
+    <input [(ngModel)]="email" name="email" type="email" placeholder="Email" required>
+    <input [(ngModel)]="subject" name="subject" placeholder="Subject">
+    <textarea [(ngModel)]="message" name="message" placeholder="Message" required rows="5"></textarea>
+
+    <button type="submit" [disabled]="state === 'loading'">
+      @if (state === 'loading') {
+        Sending...
+      } @else {
+        Send Message
+      }
+    </button>
+
+    @if (state === 'success') {
+      <p class="feedback success">✓ Message sent — I'll get back to you soon.</p>
+    }
+    @if (state === 'error') {
+      <p class="feedback error">Please fill in all required fields.</p>
+    }
+  </form>
+
+  <div class="socials">
+    <a href="https://github.com/Saumya-Divyanjalee" target="_blank">GitHub</a>
+    <a href="#" target="_blank">LinkedIn</a>
+    <a href="mailto:you@example.com">Email</a>
+  </div>
+
+  <p class="availability">Open to Software Engineering opportunities</p>
+</section>
