@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { NavigationService } from '../services/navigation';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  styleUrl: './footer.component.scss'
 })
-export class FooterComponent {}
+export class FooterComponent {
+  navigationService = inject(NavigationService);
+
+  scrollTo(id: string) {
+    this.navigationService.scrollToSection(id);
+  }
+}

@@ -2,6 +2,7 @@ import { Component, inject, HostListener, signal, AfterViewInit, PLATFORM_ID } f
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './services/theme';
+import { NavigationService } from './services/navigation';
 import { FooterComponent } from './footer/footer.component';
 import { ScrollTopComponent } from './shared/scroll-top/scroll-top.component';
 import { CodeRainComponent } from './shared/code-rain/code-rain.component';
@@ -15,6 +16,7 @@ import { CodeRainComponent } from './shared/code-rain/code-rain.component';
 })
 export class App implements AfterViewInit {
   themeService = inject(ThemeService);
+  navigationService = inject(NavigationService);
   private platformId = inject(PLATFORM_ID);
   scrolled = signal(false);
   activeSection = signal('home');
@@ -47,6 +49,6 @@ export class App implements AfterViewInit {
   }
 
   scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    this.navigationService.scrollToSection(id);
   }
 }
