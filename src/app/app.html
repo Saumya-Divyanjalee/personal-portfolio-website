@@ -1,4 +1,4 @@
-<nav>
+<nav [class.scrolled]="scrolled()">
   <a routerLink="/">Home</a>
   <a routerLink="/about">About</a>
   <a routerLink="/projects">Projects</a>
@@ -14,3 +14,4 @@
 </nav>
 
 <router-outlet></router-outlet>
+<app-footer></app-footer>
