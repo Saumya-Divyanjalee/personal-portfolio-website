@@ -1,17 +1,28 @@
-<nav [class.scrolled]="scrolled()">
-  <a routerLink="/">Home</a>
-  <a routerLink="/about">About</a>
-  <a routerLink="/projects">Projects</a>
-  <a routerLink="/contact">Contact</a>
+<app-code-rain></app-code-rain>
 
-  <button class="theme-toggle" (click)="themeService.toggle()">
-    @if (themeService.theme() === 'dark') {
-      ☀️
-    } @else {
-      🌙
-    }
+<nav [class.scrolled]="scrolled()">
+  <div class="logo" (click)="scrollTo('home')">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="8" fill="var(--accent)"/>
+      <path d="M10 21V11L16 16L22 11V21" stroke="var(--bg-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Saumya</span>
+  </div>
+
+  <div class="nav-pill">
+    <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'">Home</a>
+    <a (click)="scrollTo('about')" [class.active]="activeSection() === 'about'">About</a>
+    <a (click)="scrollTo('skills')" [class.active]="activeSection() === 'skills'">Skills</a>
+    <a (click)="scrollTo('experience')" [class.active]="activeSection() === 'experience'">Experience</a>
+    <a (click)="scrollTo('projects')" [class.active]="activeSection() === 'projects'">Projects</a>
+    <a (click)="scrollTo('contact')" [class.active]="activeSection() === 'contact'">Contact</a>
+  </div>
+
+  <button class="theme-toggle" (click)="themeService.toggle()" aria-label="Toggle theme">
+    @if (themeService.theme() === 'dark') { ☀️ } @else { 🌙 }
   </button>
 </nav>
 
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+<app-scroll-top></app-scroll-top>
