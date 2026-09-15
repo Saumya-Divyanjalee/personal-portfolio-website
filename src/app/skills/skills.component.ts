@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
 
 interface SkillGroup {
   category: string;
@@ -8,7 +9,7 @@ interface SkillGroup {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [],
+  imports: [ScrollRevealDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
