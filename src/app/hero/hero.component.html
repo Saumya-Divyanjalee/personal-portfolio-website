@@ -6,10 +6,10 @@
       <h2 class="role">{{ currentRole }}<span class="cursor">|</span></h2>
 
       <div class="cta">
-        <a routerLink="/projects" class="btn primary" #magneticBtn>
+        <a (click)="scrollToProjects()" class="btn primary" #magneticBtn>
           <i class="fas fa-diagram-project"></i> View My Projects
         </a>
-        <a routerLink="/contact" class="btn secondary">
+        <a (click)="scrollToContact()" class="btn secondary">
           <i class="fas fa-paper-plane"></i> Let's Connect
         </a>
       </div>
