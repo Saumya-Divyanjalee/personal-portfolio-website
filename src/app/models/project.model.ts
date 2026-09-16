@@ -7,4 +7,5 @@ export interface Project {
   features: string[];
   github?: string;
   liveDemo?: string;
+  image?: string;
 }

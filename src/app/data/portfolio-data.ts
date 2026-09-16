@@ -4,6 +4,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'rentify',
     title: 'Rentify',
+    image: 'assets/images/rentify.svg',
     description: 'Self-drive vehicle rental management platform with secure booking and payments.',
     category: 'fullstack',
     technologies: ['Java', 'Spring Boot', 'Spring Security', 'JWT', 'MySQL', 'JPA/Hibernate', 'PayHere', 'Leaflet'],
@@ -19,6 +20,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'zentrix',
     title: 'Zentrix',
+    image: 'assets/images/zentrix.svg',
     description: 'AI-powered full-stack study productivity platform with tasks, notes, and Gemini AI features.',
     category: 'fullstack',
     technologies: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Redux Toolkit', 'Tailwind CSS', 'Gemini AI'],
@@ -33,6 +35,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'fairvision',
     title: 'FairVision',
+    image: 'assets/images/fairvision.svg',
     description: 'CNN-based age group classifier with fairness auditing across demographic groups.',
     category: 'ai-ml',
     technologies: ['Python', 'PyTorch', 'CNN', 'Scikit-learn', 'NumPy', 'Pandas', 'Streamlit'],
@@ -46,6 +49,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'elite-driving-school',
     title: 'Elite Driving School Management System',
+    image: 'assets/images/elite-driving-school.svg',
     description: 'Desktop management system for driving school operations with role-based dashboards.',
     category: 'java',
     technologies: ['Java 21', 'JavaFX', 'Hibernate', 'MySQL', 'Maven'],
