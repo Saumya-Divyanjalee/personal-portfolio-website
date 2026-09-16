@@ -7,7 +7,15 @@
       <div class="skill-ring-grid">
         @for (item of group.items; track item) {
           <div class="skill-ring">
-            <div class="ring-visual"></div>
+            <div class="ring-visual">
+              @if (getIcon(item).img) {
+                <img [src]="getIcon(item).img" [alt]="item"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'">
+                <i [class]="getIcon(item).fa || 'fas fa-code'" style="display:none"></i>
+              } @else {
+                <i [class]="getIcon(item).fa"></i>
+              }
+            </div>
             <span>{{ item }}</span>
           </div>
         }
