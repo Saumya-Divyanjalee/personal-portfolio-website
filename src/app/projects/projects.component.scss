@@ -10,16 +10,18 @@
 .filters button {
   padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid var(--border);
   background: transparent;
+  color: var(--text);
   cursor: pointer;
   text-transform: capitalize;
   transition: all 0.2s;
 }
 
 .filters button.active {
-  background: #6366f1;
-  color: white;
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
 
 .project-list {
@@ -123,7 +125,8 @@
 .tech-tags span {
   font-size: 0.75rem;
   padding: 0.25rem 0.6rem;
-  background: rgba(99, 102, 241, 0.1);
+  background: var(--accent-soft);
+  color: var(--accent);
   border-radius: 12px;
 }
 
