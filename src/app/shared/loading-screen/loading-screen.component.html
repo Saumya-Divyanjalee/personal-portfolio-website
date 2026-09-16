@@ -1,7 +1,7 @@
-@if (visible) {
+@if (visible()) {
   <div class="boot-screen">
     <ul class="boot-log">
-      @for (line of lines; track line) {
+      @for (line of lines(); track line) {
         <li>{{ line }}</li>
       }
     </ul>

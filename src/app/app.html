@@ -1,3 +1,7 @@
+@if (booting()) {
+  <app-loading-screen (done)="onBootDone()"></app-loading-screen>
+}
+
 <app-code-rain></app-code-rain>
 
 <nav [class.scrolled]="scrolled()">
@@ -7,7 +11,7 @@
   </div>
 
   <div class="nav-pill">
-    <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'">Home</a>
+    <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'" role="link" tabindex="0" (keydown.enter)="scrollTo('home')">Home</a>
     <a (click)="scrollTo('about')" [class.active]="activeSection() === 'about'">About</a>
     <a (click)="scrollTo('skills')" [class.active]="activeSection() === 'skills'">Skills</a>
     <a (click)="scrollTo('experience')" [class.active]="activeSection() === 'experience'">Experience</a>
@@ -15,7 +19,7 @@
     <a (click)="scrollTo('contact')" [class.active]="activeSection() === 'contact'">Contact</a>
   </div>
 
-  <button class="theme-toggle" (click)="themeService.toggle()" aria-label="Toggle theme">
+    <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'">Home</a>
     @if (themeService.theme() === 'dark') { ☀️ } @else { 🌙 }
   </button>
 </nav>
