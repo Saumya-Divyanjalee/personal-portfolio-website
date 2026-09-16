@@ -12,14 +12,14 @@
 
   <div class="nav-pill">
     <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'" role="link" tabindex="0" (keydown.enter)="scrollTo('home')">Home</a>
-    <a (click)="scrollTo('about')" [class.active]="activeSection() === 'about'">About</a>
-    <a (click)="scrollTo('skills')" [class.active]="activeSection() === 'skills'">Skills</a>
-    <a (click)="scrollTo('experience')" [class.active]="activeSection() === 'experience'">Experience</a>
-    <a (click)="scrollTo('projects')" [class.active]="activeSection() === 'projects'">Projects</a>
-    <a (click)="scrollTo('contact')" [class.active]="activeSection() === 'contact'">Contact</a>
+    <a (click)="scrollTo('about')" [class.active]="activeSection() === 'about'" role="link" tabindex="0" (keydown.enter)="scrollTo('about')">About</a>
+    <a (click)="scrollTo('skills')" [class.active]="activeSection() === 'skills'" role="link" tabindex="0" (keydown.enter)="scrollTo('skills')">Skills</a>
+    <a (click)="scrollTo('experience')" [class.active]="activeSection() === 'experience'" role="link" tabindex="0" (keydown.enter)="scrollTo('experience')">Experience</a>
+    <a (click)="scrollTo('projects')" [class.active]="activeSection() === 'projects'" role="link" tabindex="0" (keydown.enter)="scrollTo('projects')">Projects</a>
+    <a (click)="scrollTo('contact')" [class.active]="activeSection() === 'contact'" role="link" tabindex="0" (keydown.enter)="scrollTo('contact')">Contact</a>
   </div>
 
-    <a (click)="scrollTo('home')" [class.active]="activeSection() === 'home'">Home</a>
+  <button class="theme-toggle" (click)="themeService.toggle()" aria-label="Toggle theme">
     @if (themeService.theme() === 'dark') { ☀️ } @else { 🌙 }
   </button>
 </nav>

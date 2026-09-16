@@ -76,3 +76,7 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+#home, #about, #skills, #experience, #projects, #contact {
+  scroll-margin-top: 100px;
+}

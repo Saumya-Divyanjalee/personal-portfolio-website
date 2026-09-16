@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ElementRef, inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ElementRef, inject, PLATFORM_ID, ViewChild, signal, afterNextRender } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationService } from '../services/navigation';
 
@@ -9,14 +9,14 @@ import { NavigationService } from '../services/navigation';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent implements OnInit, OnDestroy {
+export class HeroComponent implements OnDestroy {
   @ViewChild('magneticBtn') magneticBtn?: ElementRef<HTMLElement>;
 
   private platformId = inject(PLATFORM_ID);
   private navigationService = inject(NavigationService);
 
   roles = ['Full-Stack Developer', 'Backend Developer', 'AI/ML Enthusiast'];
-  currentRole = '';
+  currentRole = signal('');
   private roleIndex = 0;
   private charIndex = 0;
   private typing = true;
@@ -27,12 +27,12 @@ export class HeroComponent implements OnInit, OnDestroy {
   scrollToProjects() { this.navigationService.scrollToSection('projects'); }
   scrollToContact() { this.navigationService.scrollToSection('contact'); }
 
-  ngOnInit() {
-    this.timer = setInterval(() => this.tick(), 100);
-
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => this.attachMagnetic(), 0);
-    }
+  constructor() {
+    afterNextRender(() => {
+      if (!isPlatformBrowser(this.platformId)) return;
+      this.timer = setInterval(() => this.tick(), 100);
+      this.attachMagnetic();
+    });
   }
 
   ngOnDestroy() {
@@ -73,14 +73,16 @@ export class HeroComponent implements OnInit, OnDestroy {
   private tick() {
     const word = this.roles[this.roleIndex];
     if (this.typing) {
-      this.currentRole = word.slice(0, ++this.charIndex);
+      this.charIndex++;
+      this.currentRole.set(word.slice(0, this.charIndex));
       if (this.charIndex === word.length) {
         this.typing = false;
         this.timer = setTimeout(() => this.tick(), 1200);
         return;
       }
     } else {
-      this.currentRole = word.slice(0, --this.charIndex);
+      this.charIndex--;
+      this.currentRole.set(word.slice(0, this.charIndex));
       if (this.charIndex === 0) {
         this.typing = true;
         this.roleIndex = (this.roleIndex + 1) % this.roles.length;
