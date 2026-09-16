@@ -127,7 +127,7 @@ git push
 
 ---
 
-<img width="1896" height="866" alt="Screenshot 2026-09-16 140718" src="https://github.com/user-attachments/assets/bc699d51-c9a2-45a5-a41f-71d1bf2a81a6" />
+ 
 
 
 ## 📬 Contact
